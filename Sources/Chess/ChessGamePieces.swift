@@ -33,15 +33,15 @@ extension GamePiece{
 		var result: (black: String, white: String)
 		switch type{
 			case .King:
-				result = .Black ? "♚" : "♔",
+				result = .Black ? "♚" : "♔"
 			case .Queen:
-				result = .Black ? "♛" : "♕",
+				result = .Black ? "♛" : "♕"
 			case .Bishop:
-				result = .Black ? "♝" : "♗",
+				result = .Black ? "♝" : "♗"
 			case .Rook:
-				result = .Black ? "♜" : "♖",
+				result = .Black ? "♜" : "♖"
 			case .Knight:
-				result = .Black ? "♞" : "♘",
+				result = .Black ? "♞" : "♘"
 			case .Pawn:
 				result = .Black ? "♟︎" : "♙"
 		}
