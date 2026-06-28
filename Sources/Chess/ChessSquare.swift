@@ -21,7 +21,7 @@ public struct ChessSquare: Identifiable{
 		}
 	}
 
-	private static func isWhite(_ coordinate: Coordinates) [
+	private static func isWhite(_ coordinate: Coordinates){
 		switch coordinate{
 			case Coordinates(file: .b, rank: .one),
 				Coordinates(file: .d, rank: .one),
