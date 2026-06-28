@@ -8,26 +8,10 @@ public enum  CoordinateEnum: String, CaseIterable{
 	case f1,f2,f3,f4,f5,f6,f7,f8
 	case g1,g2,g3,g4,g5,g6,g7,g8
 	case h1,h2,h3,h4,h5,h6,h7,h8
+	
 }
 
-let allCoordinates: [CoordinateEnum:Coordinates] = {
-	var result: [CoordinateEnum:Coordinates] = [:]
-	var rank: Ranks = .one
-	var file: Files = .a
-	for coord in CoordinateEnum.allCases {
-		let newValue = Coordinates(file: file, rank: rank)
-		result.updateValue(newValue, forKey: coord)
-		print(newValue,rank, file, coord)
-		if let nextRank = rank.nextRank(){
-			rank = nextRank
-		}
-		else if let nextFile = file.nextFile(){
-			file = nextFile
-			rank = .one
-		}
-	}
-	return result
-}()
+
 
 
 public struct Coordinates: Hashable{
@@ -35,7 +19,7 @@ public struct Coordinates: Hashable{
 
 	public let file: Files
 	public let rank: Ranks
-
+	
 	func offset(files: Int, ranks: Int)->Self?{
 		guard let newFile = file + files else { return nil }
 		guard let newRank = rank + ranks else { return nil }

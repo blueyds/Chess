@@ -94,11 +94,23 @@ public struct ChessGameBoard{
 	}
 
 	private mutating func createChessBoard(){
-		for coord in allCoordinates{
-			let square = ChessSquare(at: coord.value)
-			board.updateValue(square, forKey: coord.value)
+		var rank: Ranks = .one
+		var file: Files = .a
+		for coord in CoordinateEnum.allCases {
+			let newValue = Coordinates(file: file, rank: rank)
+			let square = ChessSquare(at: newValue)
+			result.updateValue(square, forKey: newValue)
+			print(newValue,rank, file, coord)
+			if let nextRank = rank.nextRank(){
+				rank = nextRank
+			}
+			else if let nextFile = file.nextFile(){
+				file = nextFile
+				rank = .one
+			}
 		}
 	}
+	
 	private mutating func set(piece: GamePiece?, at: Coordinates){
 		if let square = board[at]{
 			var updatedSquare = square
@@ -122,11 +134,11 @@ public struct ChessGameBoard{
 	}
 
 	private mutating func initializeChessBoard(){
-		for coord in allCoordinates{
-			set(piece: nil, at: coord.value)
+		board.enumerated().forEach{
+			set(piece: nil, at: $0.location)
 		}
 	}
-
+	
 	internal mutating func setupNewGame(){
 		initializeChessBoard()
 		createGamePieces()
