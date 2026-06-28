@@ -17,11 +17,11 @@ public struct ChessSquare: Identifiable{
 		if Self.isWhite(coord){
 			self.color = .white
 		} else {
-			aelf.color = .black
+			self.color = .black
 		}
 	}
 
-	private static func isWhite(_ coordinate: Coordinates){
+	private static func isWhite(_ coordinate: Coordinates)->Bool{
 		switch coordinate{
 			case Coordinates(file: .b, rank: .one),
 				Coordinates(file: .d, rank: .one),

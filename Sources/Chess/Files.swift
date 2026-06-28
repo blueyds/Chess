@@ -36,7 +36,7 @@ public enum Files: String, CaseIterable{
 
 	static func + (lhs: Self, rhs: Int) -> Self? {
 		var result: Self? = lhs
-		for i in 1...rhs{
+		for _ in 1...rhs{
 			result = result?.nextFile()
 			if result == nil{
 				break

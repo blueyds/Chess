@@ -12,28 +12,44 @@ public class GamePiece{
 
 	public let color: Player
 	public let type: PieceType
+	
 	public var location: Coordinates?{
+	// TODO: will this make inital sets show hasMoved?
 		didSet{ _hasMoved = true}
 	}
+	
 	private var _hasMoved: Bool = false
 	public var hasMoved: Bool { _hasMoved}
+	
 	public init(color: Player, type: PieceType, location: Coordinates){
 		self.color = color
 		self.type = type
 		self.location = location
 	}
 }
-internal let emojis: [GamePiece.PieceType:(String,String)] = [
-	.King:("♚","♔"),
-	.Queen:("♛","♕"),
-	.Bishop:("♝", "♗"),
-	.Rook:("♜", "♖"),
-	.Knight:("♞", "♘"),
-	.Pawn:("♟︎","♙")
-]
-extension GamePiece:CustomStringConvertible{
-	public var description: String{
-		color == .Black ? emojis[type]!.0 : emojis[type]!.1
+extension GamePiece{
+
+	public var emoji: String{
+		var result: (black: String, white: String)
+		switch type{
+			case .King:
+				result = .Black ? "♚" : "♔",
+			case .Queen:
+				result = .Black ? "♛" : "♕",
+			case .Bishop:
+				result = .Black ? "♝" : "♗",
+			case .Rook:
+				result = .Black ? "♜" : "♖",
+			case .Knight:
+				result = .Black ? "♞" : "♘",
+			case .Pawn:
+				result = .Black ? "♟︎" : "♙"
+		}
+		return result
+	}
+
+	public var notation: String{
+		type.rawValue
 	}
 }
 
