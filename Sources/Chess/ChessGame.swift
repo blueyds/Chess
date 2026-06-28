@@ -39,7 +39,7 @@ public struct ChessGame{
 		}
 	}
 
-	mutating func newGame(){
+	mutating public func newGame(){
 		moves = []
 		currentTurn = nil
 		board.setupNewGame()

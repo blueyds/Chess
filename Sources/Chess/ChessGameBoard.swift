@@ -127,7 +127,7 @@ public struct ChessGameBoard{
 		}
 	}
 
-	public mutating func setupNewGame(){
+	internal mutating func setupNewGame(){
 		initializeChessBoard()
 		createGamePieces()
 		round = 1
