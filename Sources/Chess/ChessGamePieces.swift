@@ -41,70 +41,70 @@ extension ChessGameBoard{
 	public mutating func createGamePieces(){
 		pieces = []
 		pieces.append(GamePiece(color: .White, type: .Rook, 
-			location: Coordinates(file: .a, rank: .one))
+			location: Coordinates(file: .a, rank: .one)))
 		pieces.append(GamePiece(color: .White, type: .Knight, 
-			location: Coordinates(file: .b, rank: .one))
+			location: Coordinates(file: .b, rank: .one)))
 		pieces.append(GamePiece(color: .White, type: .Bishop, 
-			location: Coordinates(file: .c, rank: .one))
+			location: Coordinates(file: .c, rank: .one)))
 		pieces.append(GamePiece(color: .White, type: .Queen, 
-			location: 	Coordinates(file: .d, rank: .one))
+			location: 	Coordinates(file: .d, rank: .one)))
 		pieces.append(GamePiece(color: .White, type: .King, 
-			location: 	Coordinates(file: .e, rank: .one))
+			location: 	Coordinates(file: .e, rank: .one)))
 		pieces.append(GamePiece(color: .White, type: .Bishop, 
-			location: Coordinates(file: .f, rank: .one))
+			location: Coordinates(file: .f, rank: .one)))
 		pieces.append(GamePiece(color: .White, type: .Knight, 
-			location: Coordinates(file: .g, rank: .one))	
+			location: Coordinates(file: .g, rank: .one)))	
 		pieces.append(GamePiece(color: .White, type: .Rook, 
-			location: 	Coordinates(file: .h, rank: .one))
+			location: 	Coordinates(file: .h, rank: .one)))
 		pieces.append(GamePiece(color: .White, type: .Pawn, 
-			location: Coordinates(file: .a, rank: .two))
+			location: Coordinates(file: .a, rank: .two)))
 		pieces.append(GamePiece(color: .White, type: .Pawn, 
-			location: Coordinates(file: .b, rank: .two))
+			location: Coordinates(file: .b, rank: .two)))
 		pieces.append(GamePiece(color: .White, type: .Pawn, 
-			location: Coordinates(file: .c, rank: .two))
+			location: Coordinates(file: .c, rank: .two)))
 		pieces.append(GamePiece(color: .White, type: .Pawn, 
-			location: Coordinates(file: .d, rank: .two))
+			location: Coordinates(file: .d, rank: .two)))
 		pieces.append(GamePiece(color: .White, type: .Pawn, 
-			location: Coordinates(file: .e, rank: .two))
+			location: Coordinates(file: .e, rank: .two)))
 		pieces.append(GamePiece(color: .White, type: .Pawn, 
-			location: Coordinates(file: .f, rank: .two))
+			location: Coordinates(file: .f, rank: .two)))
 		pieces.append(GamePiece(color: .White, type: .Pawn, 
-			location: Coordinates(file: .g, rank: .two))
+			location: Coordinates(file: .g, rank: .two)))
 		pieces.append(GamePiece(color: .White, type: .Pawn, 
-			location: Coordinates(file: .h, rank: .two))
+			location: Coordinates(file: .h, rank: .two)))
 
 		pieces.append(GamePiece(color: .Black, type: .Rook, 
-			location: Coordinates(file: .a, rank: .eight))
+			location: Coordinates(file: .a, rank: .eight)))
 		pieces.append(GamePiece(color: .Black, type: .Knight, 
-			location: Coordinates(file: .b, rank: .eight))
+			location: Coordinates(file: .b, rank: .eight)))
 		pieces.append(GamePiece(color: .Black, type: .Bishop, 
-			location: Coordinates(file: .c, rank: .eight))
+			location: Coordinates(file: .c, rank: .eight)))
 		pieces.append(GamePiece(color: .Black, type: .Queen, 
-			location: 	Coordinates(file: .d, rank: .eight))
+			location: 	Coordinates(file: .d, rank: .eight)))
 		pieces.append(GamePiece(color: .Black, type: .King, 
-			location: 	Coordinates(file: .e, rank: .eight))
+			location: 	Coordinates(file: .e, rank: .eight)))
 		pieces.append(GamePiece(color: .Black, type: .Bishop, 
-			location: Coordinates(file: .f, rank: .eight))
+			location: Coordinates(file: .f, rank: .eight)))
 		pieces.append(GamePiece(color: .Black, type: .Knight, 
-			location: Coordinates(file: .g, rank: .eight))
+			location: Coordinates(file: .g, rank: .eight)))
 		pieces.append(GamePiece(color: .Black, type: .Rook, 
-			location: Coordinates(file: .h, rank: .eight))
+			location: Coordinates(file: .h, rank: .eight)))
 
 		pieces.append(GamePiece(color: .Black, type: .Pawn, 
-			location: 	Coordinates(file: .a, rank: .seven))
+			location: 	Coordinates(file: .a, rank: .seven)))
 		pieces.append(GamePiece(color: .Black, type: .Pawn, 
 			location: Coordinates(file: .b, rank: .seven)))
 		pieces.append(GamePiece(color: .Black, type: .Pawn, 
-			location: Coordinates(file: .c, rank: .seven))
+			location: Coordinates(file: .c, rank: .seven)))
 		pieces.append(GamePiece(color: .Black, type: .Pawn, 
-			location: Coordinates(file: .d, rank: .seven))
+			location: Coordinates(file: .d, rank: .seven)))
 		pieces.append(GamePiece(color: .Black, type: .Pawn, 
-			location: Coordinates(file: .e, rank: .seven))
+			location: Coordinates(file: .e, rank: .seven)))
 		pieces.append(GamePiece(color: .Black, type: .Pawn, 
-			location: Coordinates(file: .f, rank: .seven))
+			location: Coordinates(file: .f, rank: .seven)))
 		pieces.append(GamePiece(color: .Black, type: .Pawn, 
-			location: Coordinates(file: .g, rank: .seven))
+			location: Coordinates(file: .g, rank: .seven)))
 		pieces.append(GamePiece(color: .Black, type: .Pawn, 
-			location: Coordinates(file: .h, rank: .seven))
+			location: Coordinates(file: .h, rank: .seven)))
 	}
 }
