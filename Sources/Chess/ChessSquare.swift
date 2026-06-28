@@ -57,7 +57,7 @@ public struct ChessSquare: Identifiable{
 				Coordinates(file: .g, rank: .eight):
 				return true
 			default: return false
-			}		
-	]
+		}		
+	}
 
 }
