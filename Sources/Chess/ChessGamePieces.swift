@@ -45,7 +45,11 @@ extension GamePiece{
 			case .Pawn:
 				result = (black:  "♟︎" , white: "♙")
 		}
-		if result == 
+		if result == .White {
+			return result.white
+		} else {
+			return result.black
+		}
 	}
 
 	public var notation: String{
