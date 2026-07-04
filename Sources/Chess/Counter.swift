@@ -1,7 +1,7 @@
 import Foundation
 import Synchronization
 
-internal Counter{
+internal struct Counter{
     
     private static let last: Mutex<Int> = Mutex(.zero)
     
