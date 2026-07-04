@@ -33,19 +33,19 @@ extension GamePiece{
 		var result: (black: String, white: String)
 		switch type{
 			case .King:
-				result = .Black ? "♚" : "♔"
+				result = (black: "♚", white: "♔")
 			case .Queen:
-				result = .Black ? "♛" : "♕"
+				result = (black: "♛" , white: "♕")
 			case .Bishop:
-				result = .Black ? "♝" : "♗"
+				result = (black: "♝" , white: "♗")
 			case .Rook:
-				result = .Black ? "♜" : "♖"
+				result = (black: "♜" , white: "♖")
 			case .Knight:
-				result = .Black ? "♞" : "♘"
+				result = (black:  "♞" , white: "♘")
 			case .Pawn:
-				result = .Black ? "♟︎" : "♙"
+				result = (black:  "♟︎" , white: "♙")
 		}
-		return result
+		if result == 
 	}
 
 	public var notation: String{

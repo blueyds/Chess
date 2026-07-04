@@ -1,5 +1,5 @@
 import Foundation
-
+import Synchronization
 
 public enum specials{
 	case none
@@ -9,9 +9,8 @@ public enum specials{
 	case checkmate
 }
 
-public class ChessTurn: IncrementalID, Identifiable{
-	static public var last: Int = .zero
-	public let id: Int = ChessTurn.NextID()
+public class ChessTurn: Identifiable{
+	public let id = Counter.next
 	public var white: ChessMove
 	public var black: ChessMove?
 	public var gameEnding: Bool = false
@@ -19,6 +18,20 @@ public class ChessTurn: IncrementalID, Identifiable{
 		self.white = white
 		self.black = black
 	}
+	
+	
+	static let last: Mutex<Int> = Mutex(0)
+    
+    static func NextID()->Int{
+        var result: Int = .zero
+        last.withLock{
+            result = $0 + 1
+            $0 = result
+        }
+        return result
+    }
+	
+	
 }
 extension ChessTurn: CustomStringConvertible{
 	public var description: String {
