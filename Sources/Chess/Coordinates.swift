@@ -21,10 +21,18 @@ public struct Coordinates: Hashable{
 	public let rank: Ranks
 	
 	public init(_ coord: CoordinateEnum){
-		let f: String = coord.rawValue[0]
-		let r: String = coord.rawValue[1]
-		self.file = Files(rawValue: f)
-		self.rank = Ranks(rawValue: r)
+		let f: String = String(coord.rawValue[0])
+		let r: String = String(coord.rawValue[1])
+		if let newFile = Files(rawValue: f){
+			self.file = newFile
+		} else {
+			fatalError("cound not init coordinates \(coord.rawValue)")
+		}
+		if let newRank = Ranks(rawValue: r){
+			self.rank = newRank
+		} else {
+			fatalError("cound not init coordinates \(coord.rawValue)")
+		}
 	}
 	
 	public init(file: Files, rank: Ranks){
