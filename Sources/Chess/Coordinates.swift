@@ -27,6 +27,11 @@ public struct Coordinates: Hashable{
 		self.rank = Ranks(rawValue: r)
 	}
 	
+	public init(file: Files, rank: Ranks){
+		self.file = file
+		self.rank = rank
+	}
+	
 	func offset(files: Int, ranks: Int)->Self?{
 		guard let newFile = file + files else { return nil }
 		guard let newRank = rank + ranks else { return nil }
