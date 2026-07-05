@@ -10,7 +10,7 @@ public enum specials{
 }
 
 public class ChessTurn: Identifiable{
-	public let id = Counter.next(1)
+	public let id = Counter.Next(1)
 	public var white: ChessMove
 	public var black: ChessMove?
 	public var gameEnding: Bool = false
@@ -35,7 +35,7 @@ extension ChessTurn: CustomStringConvertible{
 	}
 }
 public class ChessMove: Identifiable{
-	public let id: Int = Counter.next(2)
+	public let id: Int = Counter.Next(2)
 	public let round: Int
 	public let color: Player
 	public let type: GamePiece.PieceType

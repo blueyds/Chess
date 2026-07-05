@@ -4,6 +4,9 @@ import Synchronization
 struct Counter{
     
     private static let last: Mutex<[Int:Int]> = Mutex([1:0])
+    public static var next: Int {
+	    Next(0)
+    }
     
     public static func Next(_ key: Int)-> Int {
         var result: Int = 1
