@@ -20,6 +20,13 @@ public struct Coordinates: Hashable{
 	public let file: Files
 	public let rank: Ranks
 	
+	public init(_ coord: CoordinateEnum){
+		let f: String = coord.rawValue[0]
+		let r: String = coord.rawValue[1]
+		self.file = Files(rawValue: f)
+		self.rank = Ranks(rawValue: r)
+	}
+	
 	func offset(files: Int, ranks: Int)->Self?{
 		guard let newFile = file + files else { return nil }
 		guard let newRank = rank + ranks else { return nil }
