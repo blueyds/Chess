@@ -1,18 +1,20 @@
 import Foundation
 import Synchronization
 
-internal struct Counter{
+struct Counter{
     
-    private static let last: Mutex<Int> = Mutex(.zero)
+    private static let last: Mutex<[Int:Int]> = Mutex([1:0])
     
-    internal static var next: Int {
-        get{
-            var result: Int = .zero
-            last.withLock{
-                $0 = $0 + 1
-                result = $0
+    public static func Next(_ key: Int)-> Int {
+        var result: Int = 1
+        last.withLock{
+            if $0[key] != nil{
+                result = $0[key]! + 1
+                $0.updateValue(result, forKey: key)
+            } else {
+                $0.updateValue(1, forKey: key)
             }
-            return result
         }
+        return result
     }
 }

@@ -10,7 +10,7 @@ public enum specials{
 }
 
 public class ChessTurn: Identifiable{
-	public let id = Counter.next
+	public let id = Counter.next(1)
 	public var white: ChessMove
 	public var black: ChessMove?
 	public var gameEnding: Bool = false
@@ -18,18 +18,6 @@ public class ChessTurn: Identifiable{
 		self.white = white
 		self.black = black
 	}
-	
-	
-	static let last: Mutex<Int> = Mutex(0)
-    
-    static func NextID()->Int{
-        var result: Int = .zero
-        last.withLock{
-            result = $0 + 1
-            $0 = result
-        }
-        return result
-    }
 	
 	
 }
@@ -46,9 +34,8 @@ extension ChessTurn: CustomStringConvertible{
 		}
 	}
 }
-public class ChessMove: Identifiable , IncrementalID{
-	static public var last: Int = .zero
-	public let id: Int = ChessMove.NextID()
+public class ChessMove: Identifiable{
+	public let id: Int = Counter.next(2)
 	public let round: Int
 	public let color: Player
 	public let type: GamePiece.PieceType

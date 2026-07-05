@@ -45,7 +45,7 @@ extension GamePiece{
 			case .Pawn:
 				result = (black:  "♟︎" , white: "♙")
 		}
-		if result == .White {
+		if color == .White {
 			return result.white
 		} else {
 			return result.black
