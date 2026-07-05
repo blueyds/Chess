@@ -21,8 +21,8 @@ public struct Coordinates: Hashable{
 	public let rank: Ranks
 	
 	public init(_ coord: CoordinateEnum){
-		let f: String = String(coord.rawValue[0])
-		let r: String = String(coord.rawValue[1])
+		let f: String = String(coord.rawValue.first!)
+		let r: String = String(coord.rawValue.last!)
 		if let newFile = Files(rawValue: f){
 			self.file = newFile
 		} else {
