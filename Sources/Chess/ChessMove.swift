@@ -14,7 +14,7 @@ public class ChessTurn: Identifiable{
 	public var white: ChessMove
 	public var black: ChessMove?
 	public var gameEnding: Bool = false
-	init(white: ChessMove, black: ChessMove?){
+	public init(white: ChessMove, black: ChessMove?){
 		self.white = white
 		self.black = black
 	}
