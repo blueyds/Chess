@@ -5,6 +5,7 @@ public struct ChessGame{
 	internal selection: Coordinates? = nil
 	internal var moves: [ChessTurn] = []
 	internal var currentTurn: ChessTurn? = nil
+	public init(){}
 	
 	private var currentPlayer: Player = .White
 	
