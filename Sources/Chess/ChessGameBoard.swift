@@ -20,11 +20,12 @@ public struct ChessGameBoard {
                 var rank: Ranks = .one
                 var file: Files = .a
                 board = [:]
+		// iterate through the Coordinate Enums and create Squares based
                 for coord in CoordinateEnum.allCases {
                         let newValue = Coordinates(file: file, rank: rank)
                         let square = ChessSquare(at: newValue)
                         board.updateValue(square, forKey: newValue)
-                        print(newValue, rank, file, coord)
+                        //print(newValue, rank, file, coord)
                         if let nextRank = rank.nextRank() {
                                 rank = nextRank
                         } else if let nextFile = file.nextFile() {
@@ -34,24 +35,18 @@ public struct ChessGameBoard {
                 }
         }
 
-        internal mutating func set(piece: GamePiece?, at: Coordinates) {
-                if let square = board[at] {
-                        var updatedSquare = square
-                        if piece == nil {
-                                if let atPiece = square.piece {
-                                        atPiece.location = nil
-                                }
-                        }
-                        if piece != nil, piece!.location != at {
-                                piece!.location = at
-                        }
-                        updatedSquare.piece = piece
-
-                        board.updateValue(updatedSquare, forKey: at)
-                } else {
-                        fatalError()
-                }
-        }
+        internal mutating func set(piece: GamePiece?, at coordinates: Coordinate)
+		let square = get(at: coordinates)
+		if piece == nil
+		// if let atPiece = square.piece {
+		// 	atPiece.location = nil
+		// }
+		if piece != nil, piece!.location != at {
+			piece!.move(to: location)
+		}
+		updatedSquare.piece = piece
+			board.updateValue(updatedSquare, forKey: at)
+	 }
 
         public func get(at: Coordinates) -> ChessSquare {
                 if board[at] == nil {

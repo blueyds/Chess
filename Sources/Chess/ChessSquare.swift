@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ChessSquare: Identifiable{
+public class ChessSquare: Identifiable{
 	public enum SquareColor{
 		case black, white
 	}

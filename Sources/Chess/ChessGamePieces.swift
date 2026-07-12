@@ -2,22 +2,40 @@ import Foundation
 
 public class GamePiece {
 
-        public enum PieceType: String {
-                case King = "K"
-                case Queen = "Q"
-                case Rook = "R"
-                case Bishop = "B"
-                case Knight = "N"
-                case Pawn = "P"
-        }
-
-        public let color: Player
-        public let type: PieceType
-
-        public var location: Coordinates? {
-                // TODO: will this make inital sets show hasMoved?
-                didSet { _hasMoved = true }
-        }
+	public enum PieceType: String {
+		case King = "K"
+		case Queen = "Q"
+		case Rook = "R"
+		case Bishop = "B"
+		case Knight = "N"
+		case Pawn = "P"
+	}
+	
+	public let color: Player
+	public let type: PieceType
+	
+	private var _selected: Bool = false
+	public var selected: Bool { _selected }
+	
+	public func select(){
+		_selected = true
+	}
+	public func deselect(){
+		_selected = false
+	}
+	
+        private var _location: Coordinates?
+	public var location: Coordinates? { _location}
+	
+	// before we move the piece, we first check to see
+	// if the prior location was nil. if not, then this
+	// will have been moved going forward.
+	// has moved will be needed for castlinlg sitiaution
+	public func move(to newLocation: Coordinates){
+		if location != nil && hasMoved == false { 
+			hasMoved = true}
+		location = newLocation
+	}
 
         private var _hasMoved: Bool = false
         public var hasMoved: Bool { _hasMoved }
@@ -25,9 +43,9 @@ public class GamePiece {
         public init(color: Player, type: PieceType, location: Coordinates) {
                 self.color = color
                 self.type = type
-                self.location = location
+                self._location = location
         }
-
+	
         internal var isWhite: Bool {
                 color == .White
         }
